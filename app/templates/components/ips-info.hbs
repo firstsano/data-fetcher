@@ -1,0 +1,22 @@
+<div class="compact-table">
+  <div class="compact-table__layout">
+    <table class="compact-table__table">
+      <thead>
+      <tr>
+        <th> {{t 'physicals.device.ip'}} </th>
+        <th> {{t 'physicals.device.start'}} </th>
+        <th> {{t 'physicals.device.end'}} </th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each items as |item|}}
+        <tr>
+          <td> {{item.ip}} </td>
+          <td> {{item.time_start}} </td>
+          <td> {{item.time_end}} </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

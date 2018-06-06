@@ -1,0 +1,39 @@
+<div class="layout">
+  <div class="layout__aside">
+    {{#simple-display title="Выбранный пользователь" as |d|}}
+      {{#if selectedUser}}
+        {{d.attribute (t 'telephony.number') selectedUser.number}}
+        {{d.attribute (t 'telephony.client') selectedUser.client}}
+        {{d.attribute (t 'telephony.orgAddress') selectedUser.orgAddress}}
+        {{d.attribute (t 'telephony.hookupAddress') selectedUser.hookupAddress}}
+        {{d.attribute (t 'telephony.phones') selectedUser.phones}}
+        {{d.attribute (t 'telephony.inn') selectedUser.inn}}
+      {{else}}
+        Пользователь не выбран
+      {{/if}}
+    {{/simple-display}}
+    <br />
+    {{#collapse-content toggleLabel="Фильтр"}}
+      {{#simple-filter onFilter=(action "filter") as |f|}}
+        {{f.attribute (t 'telephony.number') 'number'}}
+        {{f.attribute (t 'telephony.client') 'client'}}
+        {{f.attribute (t 'telephony.orgAddress') 'orgAddress'}}
+        {{f.attribute (t 'telephony.hookupAddress') 'hookupAddress'}}
+        {{f.attribute (t 'telephony.phones') 'phones'}}
+        {{f.attribute (t 'telephony.inn') 'inn'}}
+      {{/simple-filter}}
+    {{/collapse-content}}
+  </div>
+  <div class="layout__main">
+    <div class="telephony">
+      <div> Ресурс нумерации (поле <strong>номер</strong>): 550000-550199, 319000-319999 </div>
+      <hr />
+      {{juridicals-table data=telephonyUsers
+                          displayDataChangedAction=(action "selectUser")
+                          columns=columns
+                          currentPageNumber=page
+                          pageSize=perPage
+      }}
+    </div>
+  </div>
+</div>

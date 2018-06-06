@@ -1,0 +1,27 @@
+.simple-form {
+  @extend .card;
+
+  & .simple-form__body {
+    @extend .card-body;
+  }
+
+  & .simple-form__title {
+    @extend .card-title;
+  }
+
+  & .simple-form__group-input {
+    @extend .form-group, .row;
+  }
+
+  & .simple-form__label {
+    @extend .col-12, .col-lg-5, .col-form-label;
+  }
+
+  & .simple-form__input-layout {
+    @extend .col-12, .col-lg-7;
+  }
+
+  & .simple-form__input {
+    @extend .form-control, .form-control-sm;
+  }
+}

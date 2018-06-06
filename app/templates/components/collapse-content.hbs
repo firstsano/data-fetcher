@@ -1,0 +1,17 @@
+<div class="collapse-content">
+  <div class="collapse-content__switcher">
+    <button {{action 'toggleCollapse'}} class="collapse-content__button">
+      {{#if isCollapsed}}
+        {{fa-icon 'plus'}}
+      {{else}}
+        {{fa-icon 'minus'}}
+      {{/if}}
+      {{toggleLabel}}
+    </button>
+  </div>
+  <div class="collapse-content__content">
+    {{#unless isCollapsed}}
+      {{yield}}
+    {{/unless}}
+  </div>
+</div>

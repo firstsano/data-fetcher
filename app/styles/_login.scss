@@ -1,0 +1,38 @@
+$height-navbar: 50px;
+$color-icon: white;
+$color-badge: #0043af;
+
+.login {
+  bottom: 0;
+  position: absolute;
+  top: $height-navbar;
+  left: 0;
+  right: 0;
+  z-index: 0;
+
+  & .login__container {
+    @extend .container;
+    height: 100%;
+  }
+
+  & .login__layout {
+    @extend .row;
+    height: 100%;
+  }
+
+  & .login__frame {
+    @extend .m-auto, .col-10, .col-md-6, .col-lg-4, .border;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  & .login__title {
+    font-weight: 500;
+    text-align: center;
+  }
+
+  & .login__submit {
+    @extend .btn, .btn-primary;
+    width: 100%;
+  }
+}

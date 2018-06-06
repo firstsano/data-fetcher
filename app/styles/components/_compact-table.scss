@@ -1,0 +1,10 @@
+.compact-table {
+  .compact-table__layout {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .compact-table__table {
+    @extend .table, .table-bordered, .table-sm, .table-responsive-sm;
+  }
+}

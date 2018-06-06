@@ -1,0 +1,12 @@
+.base-table {
+  @extend .table, .table-bordered, .table-hover, .table-striped, .table-sm, .table-responsive-md;
+  margin: 10px 0;
+
+  tbody tr {
+    cursor: pointer;
+  }
+
+  tbody tr.selected-row {
+    background-color: lighten(green, 60%);
+  }
+}

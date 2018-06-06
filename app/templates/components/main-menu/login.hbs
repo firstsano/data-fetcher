@@ -1,0 +1,13 @@
+{{#if user}}
+  <li class="main-menu__nav-item">
+    <a class="main-menu__nav-link" href="#" {{action onLogout}}>
+      {{user}} {{fa-icon "sign-in" class='main-menu__login-button'}}
+    </a>
+  </li>
+{{else}}
+  <li class="main-menu__nav-item">
+    <a class="main-menu__nav-link" href="#" {{action onLogin}}>
+        {{t 'components.main-menu.login'}} {{fa-icon "sign-in" class='main-menu__login-button'}}
+    </a>
+  </li>
+{{/if}}

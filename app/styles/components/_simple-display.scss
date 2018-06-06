@@ -1,0 +1,25 @@
+.simple-display {
+  @extend .card;
+  font-size: 14px;
+
+  & .simple-display__body {
+    @extend .card-body;
+  }
+
+  & .simple-display__title {
+    @extend .card-title;
+  }
+
+  & .simple-display__item {
+    @extend .row;
+  }
+
+  & .simple-display__label {
+    @extend .col-lg-4;
+    font-weight: bold;
+  }
+
+  & .simple-display__value {
+    @extend .col-lg-8;
+  }
+}

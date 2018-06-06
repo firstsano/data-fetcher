@@ -1,0 +1,43 @@
+<div class="layout">
+  <div class="layout__aside">
+    {{#simple-display title="Выбранный пользователь" as |d|}}
+      {{#if selectedUnit}}
+        {{d.attribute (t 'juridicals.from') selectedUnit.from}}
+        {{d.attribute (t 'juridicals.to') selectedUnit.to}}
+        {{d.attribute (t 'juridicals.name') selectedUnit.name}}
+        {{d.attribute (t 'juridicals.client') selectedUnit.client}}
+        {{d.attribute (t 'juridicals.orgAddress') selectedUnit.orgAddress}}
+        {{d.attribute (t 'juridicals.hookupAddress') selectedUnit.hookupAddress}}
+        {{d.attribute (t 'juridicals.ip') selectedUnit.ip}}
+        {{d.attribute (t 'juridicals.phones') selectedUnit.phones}}
+        {{d.attribute (t 'juridicals.inn') selectedUnit.inn}}
+      {{else}}
+        Пользователь не выбран
+      {{/if}}
+    {{/simple-display}}
+    <br />
+    {{#collapse-content toggleLabel="Фильтр"}}
+      {{#simple-filter onFilter=(action "filter") as |f|}}
+        {{f.attribute (t 'juridicals.ip') 'ip'}}
+        {{f.attribute (t 'juridicals.name') 'name'}}
+        {{f.attribute (t 'juridicals.from') 'from'}}
+        {{f.attribute (t 'juridicals.to') 'to'}}
+        {{f.attribute (t 'juridicals.hookupAddress') 'hookupAddress'}}
+        {{f.attribute (t 'juridicals.client') 'client'}}
+        {{f.attribute (t 'juridicals.orgAddress') 'orgAddress'}}
+        {{f.attribute (t 'juridicals.phones') 'phones'}}
+        {{f.attribute (t 'juridicals.inn') 'inn'}}
+      {{/simple-filter}}
+    {{/collapse-content}}
+  </div>
+  <div class="layout__main">
+    <div class="juridicals">
+      {{juridicals-table data=juridicals
+                          displayDataChangedAction=(action "selectUnit")
+                          columns=columns
+                          currentPageNumber=page
+                          pageSize=perPage
+      }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<nav class="main-menu">
+  {{link-to (t 'app.brand') 'application' class='main-menu__brand'}}
+  <button class="main-menu__toggler" type="button" data-toggle="collapse"
+          data-target="#navbar-content" aria-controls="navbar-content"
+          aria-expanded="false" aria-label="{{t "components.main-menu.mainMenu"}}">
+    {{fa-icon "bars"}}
+  </button>
+
+  <div class="main-menu__collapse-wrapper" id="navbar-content">
+    {{#if user}}
+      <ul class="main-menu__nav">
+        {{#each navItems as |item|}}
+          {{main-menu/active-link url=item.url label=item.label}}
+        {{/each}}
+      </ul>
+    {{/if}}
+    <ul class="main-menu__login">
+      {{main-menu/login onLogin=onLogin user=user onLogout=onLogout}}
+    </ul>
+  </div>
+</nav>

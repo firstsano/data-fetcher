@@ -1,0 +1,10 @@
+.loading {
+  & .loading__progress {
+    @extend .progress;
+  }
+
+  & .loading__progress-bar {
+    @extend .progress-bar, .progress-bar-striped, .progress-bar-animated;
+    width: 100%;
+  }
+}

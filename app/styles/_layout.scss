@@ -1,0 +1,11 @@
+.layout {
+  @extend .row;
+
+  & .layout__aside {
+    @extend .col-12, .col-lg-4;
+  }
+
+  & .layout__main {
+    @extend .col-12, .col-lg-8;
+  }
+}

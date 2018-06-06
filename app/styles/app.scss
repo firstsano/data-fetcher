@@ -1,0 +1,12 @@
+@import "ember-cli-bootstrap-4/bootstrap";
+@import "variables";
+@import "mixins";
+
+// Import component's specific styles
+@import "components/components";
+
+// Import application specific style
+@import "login";
+@import "physicals";
+@import "juridicals";
+@import "layout";

@@ -1,0 +1,16 @@
+{{#with (hash
+        input=(component 'simple-form/input' label value)
+        button=(component 'simple-form/button' label class=class onClick=onClick)
+        submit=(component 'simple-form/submit' label)
+        ) as |formFields|
+}}
+  <div class="simple-form">
+    <div class="simple-form__body">
+      <h5 class="simple-form__title">{{title}}</h5>
+      <hr />
+      <form {{action onSubmit on="submit"}}>
+        {{yield formFields}}
+      </form>
+    </div>
+  </div>
+{{/with}}

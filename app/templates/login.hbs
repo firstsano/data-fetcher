@@ -1,0 +1,26 @@
+<div class="login">
+  <div class="login__container">
+    <div class="login__layout">
+      <div class="login__frame">
+        <form {{action 'authenticate' on='submit'}}>
+          <div class="login__title"> {{t 'login.authorization'}} </div>
+          <hr />
+          {{error-message errorMessage}}
+          <div class="form-group row">
+            <label class="col-4 col-form-label">{{t 'login.login'}}</label>
+            <div class="col-8">
+              {{input value=identification class="form-control" placeholder='Enter Login' }}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">{{t 'login.password'}}</label>
+            <div class="col-8">
+              {{input type='password' value=password class="form-control" placeholder='Enter Password' }}
+            </div>
+          </div>
+          <button type="submit" class="login__submit">{{t 'login.submit'}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

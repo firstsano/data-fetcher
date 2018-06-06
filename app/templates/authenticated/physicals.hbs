@@ -1,0 +1,59 @@
+<div class="layout">
+  <div class="layout__aside">
+    {{#simple-display title="Выбранный пользователь" as |d|}}
+      {{#if selectedUser}}
+        {{d.attribute (t 'physicals.login') selectedUser.login}}
+        {{d.attribute (t 'physicals.email') selectedUser.email}}
+        <br />
+        {{d.attribute (t 'physicals.account') selectedUser.account}}
+        {{d.attribute (t 'physicals.name') selectedUser.name}}
+        {{d.attribute (t 'physicals.address') selectedUser.address}}
+        {{d.attribute (t 'physicals.phone') selectedUser.phone}}
+        <br />
+        {{d.attribute (t 'physicals.device.name') selectedDevice.name}}
+        {{d.attribute (t 'physicals.device.role') selectedDevice.role}}
+        {{d.attribute (t 'physicals.device.mac') selectedDevice.mac}}
+        {{d.attribute (t 'physicals.device.ip') selectedDevice.ip}}
+        <br />
+        {{#if isUserLoading}}
+          {{loading-bar}}
+        {{else}}
+          {{#if selectedUser.ips}}
+            {{ips-info items=selectedUser.ips}}
+          {{/if}}
+        {{/if}}
+      {{else}}
+        Пользователь не выбран
+      {{/if}}
+    {{/simple-display}}
+    <br />
+    {{#collapse-content toggleLabel="Фильтр"}}
+      {{#simple-filter onFilter=(action "filter") onFilterParams=(hash page=page pageSize=perPage) as |f|}}
+        {{f.attribute (t 'physicals.login') 'login'}}
+        {{f.attribute (t 'physicals.name') 'fullName'}}
+        {{f.attribute (t 'physicals.address') 'actualAddress'}}
+        {{f.attribute (t 'physicals.phone') 'mobilePhone'}}
+        {{f.attribute (t 'physicals.email') 'email'}}
+        {{f.attribute (t 'physicals.account') 'accountId'}}
+        {{f.attribute (t 'physicals.device.mac') 'dmac'}}
+        {{f.attribute (t 'physicals.device.dip') 'dip'}}
+        {{f.attribute (t 'physicals.device.sip') 'sip'}}
+      {{/simple-filter}}
+    {{/collapse-content}}
+  </div>
+  <div class="layout__main">
+    <div class="physicals">
+      {{physicals-table data=physicals
+                        displayDataChangedAction=(action "selectUser")
+                        columns=columns
+                        currentPageNumber=page
+                        pageSize=perPage
+      }}
+      {{#if staticIp.accounts}}
+        <hr />
+        <strong>Дополнительная информация по выдаче IP {{staticIp.ip}}:</strong>
+        {{ip-accounts-info items=staticIp.accounts}}
+      {{/if}}
+    </div>
+  </div>
+</div>

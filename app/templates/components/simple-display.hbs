@@ -1,0 +1,12 @@
+{{#with (hash
+          attribute=(component 'simple-display/attribute' label value)
+        ) as |formFields|
+}}
+  <div class="simple-display">
+    <div class="simple-display__body">
+      <h5 class="simple-display__title"> {{title}} </h5>
+      <hr />
+      {{yield formFields}}
+    </div>
+  </div>
+{{/with}}

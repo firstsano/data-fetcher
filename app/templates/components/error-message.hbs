@@ -1,0 +1,5 @@
+{{#if (or message hasBlock)}}
+  <div class="alert alert-danger" role="alert">
+    {{message}} {{yield}}
+  </div>
+{{/if}}

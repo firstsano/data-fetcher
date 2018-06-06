@@ -1,0 +1,9 @@
+{{#link-to url tagName='li' href=false class='main-menu__nav-item'}}
+  {{#if label}}
+    {{link-to label url class='main-menu__nav-link'}}
+  {{else}}
+    {{#link-to url class='main-menu__nav-link'}}
+      {{yield}}
+    {{/link-to}}
+  {{/if}}
+{{/link-to}}

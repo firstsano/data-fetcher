@@ -1,0 +1,49 @@
+$color-light: white;
+
+.main-menu {
+  @extend .navbar, .navbar-expand-lg, .navbar-dark, .bg-dark;
+  margin-bottom: 20px;
+
+  & .main-menu__brand {
+    @extend .navbar-brand;
+    text-transform: capitalize;
+  }
+
+  & .main-menu__toggler {
+    @extend .navbar-toggler;
+    color: $color-light;
+  }
+
+  & .main-menu__collapse-wrapper {
+    @extend .collapse, .navbar-collapse;
+  }
+
+  & .main-menu__nav {
+    @extend .navbar-nav;
+  }
+
+  & .main-menu__login {
+    @extend .navbar-nav, .ml-auto;
+  }
+
+  & .main-menu__login-button {
+    font-size: 22px;
+    margin-left: 10px;
+    vertical-align: bottom;
+  }
+
+  & .main-menu__nav-item {
+    @extend .nav-item;
+
+    &.active {
+      color: $color-light;
+    }
+  }
+
+  & .main-menu__nav-link {
+    @extend .nav-link;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

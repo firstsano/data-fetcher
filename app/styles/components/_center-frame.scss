@@ -1,0 +1,21 @@
+$height-navbar: 50px;
+
+.center-frame {
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  top: $height-navbar;
+  left: 0;
+  right: 0;
+  z-index: 0;
+
+  & .center-frame__content {
+    @extend .m-auto, .col-10, .col-md-6, .col-lg-4;
+  }
+
+  & .center-frame__content_bordered {
+    @extend .border;
+    padding: 20px;
+    border-radius: 5px;
+  }
+}

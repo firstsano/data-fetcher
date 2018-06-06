@@ -1,0 +1,11 @@
+{{#simple-form title=(t 'app.filterSettings')
+               onSubmit=(action 'filter') as |simple-form|}}
+  {{#with (hash
+            attribute=(component 'simple-filter/attribute' label=label value=value filter=filter form=simple-form)
+          ) as |filterAttributes|
+  }} {{yield filterAttributes}} {{/with}}
+
+  <hr />
+  {{simple-form.submit (t 'app.filter')}}
+  {{simple-form.button (t 'app.resetFilter') class="btn btn-info" onClick=(action "reset")}}
+{{/simple-form}}
